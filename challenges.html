@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Depth Estimation - Challenges</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="pothole.html">Pothole Detection</a></li>
+                <li><a href="models.html">Models</a></li>
+                
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="conclusion.html">Conclusion</a></li>
+                
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="challenges">
+            <h2>Challenges and Limitations</h2>
+            <p>While the YOLOv8 model demonstrated exceptional performance in detecting road hazards, several challenges and limitations were encountered during the course of this research. These challenges highlight areas where further improvements are needed to refine the model and enhance its real-world applicability.</p>
+            <br>
+            <ol>
+                <li><h3>Limited Dataset Diversity</h3>
+                  <p>Despite including a variety of road hazards such as potholes, sewer covers, and manholes, the dataset used for this study could benefit from more extensive diversity. The current dataset is limited in terms of:</p>
+                  <ul>
+                    <li>Geographic diversity: The dataset primarily contains images from a specific region, leading to potential biases in road types and environmental conditions.</li>
+                    <li>Weather and Lighting Variations: While efforts were made to account for varying lighting conditions, there remains a lack of extreme weather scenarios such as heavy rain, snow, or fog. Such conditions could affect the model’s accuracy and require further training with more comprehensive datasets.</li>
+                  </ul>
+                </li>
+                
+                <img src="images/1.png" alt="Model Architecture"width="750" height="550">
+                
+                <li><h3>False Positives and Overfitting</h3>
+                  <p>Despite the inclusion of manholes and sewer covers in the dataset to reduce false positives, the model still exhibited occasional overfitting during training, leading to:</p>
+                  <ul>
+                    <li>False Positives: In some cases, the model mistakenly classified non-hazardous objects or road elements (such as wet patches or shadows) as potholes. This is particularly problematic in autonomous driving applications, where unnecessary evasive actions could pose risks to safety.</li>
+                    <li>Overfitting to Specific Road Conditions: The model occasionally struggled to generalize across different road types (e.g., highways versus urban roads), suggesting overfitting to the specific features of the training data.</li>
+                  </ul>
+                </li>
+                
+                <li><h3>Challenges with Small and Irregular Objects</h3>
+                  <p>Although YOLOv8 achieved high accuracy overall, detecting very small or irregularly shaped potholes remained a challenge. The difficulty lies in:</p>
+                  <ul>
+                    <li>Object Size Variability: Potholes, especially smaller ones, can be difficult for the model to detect consistently. This is compounded when these objects appear under poor lighting or are partially obscured by other elements (e.g., dirt, leaves, or puddles).</li>
+                    <li>Complex Object Boundaries: Irregular shapes and boundaries, especially in damaged or uneven road surfaces, presented challenges in accurate boundary detection, leading to occasional misclassifications or missed detections.</li>
+                  </ul>
+                </li>
+                
+                <li><h3>Environmental Challenges and Sensor Limitations</h3>
+                  <p>Although the model performed well in a controlled dataset, real-world conditions can introduce unpredictable variables that affect its accuracy. These include:</p>
+                  <ul>
+                    <li>Weather Impact: While fog, lighting, and some environmental factors were incorporated into the training process, extreme weather conditions such as heavy rainfall, snow, or glare from the sun can significantly degrade performance.</li>
+                    <li>Camera and Sensor Quality: Low-resolution cameras or sensors installed in vehicles may not capture the fine details required for accurate object detection, affecting the model’s real-time performance in detecting small potholes or distinguishing between similar objects.</li>
+                  </ul>
+                </li>
+                
+                
+              </ol>
+              
+              
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Visual Detection of Road Hazards Tutorial | Created by Jaskaran Singh Sabharwal</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Depth Estimation - Models</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="pothole.html">Pothole Detection</a></li>
+                <li><a href="models.html">Models</a></li>
+                
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="conclusion.html">Conclusion</a></li>
+            
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="models">
+            <h2>Road Hazard Detection Models: YOLOv8 and Beyond</h2>
+            <p>In this section, we delve into the models used for detecting various road hazards, focusing on the architecture, training techniques, and preprocessing steps employed in YOLOv8, as well as comparisons with its predecessors, YOLOv5 and YOLOv7. These models are applied to detect not only potholes but also sewer covers and manholes, demonstrating their versatility in identifying different types of hazards on roads in real-time.</p>
+            <img src="images/2.png" alt="Model Architecture"width="750" height="550">
+            <h3>YOLOv8 Architecture</h3>
+            <p>The architecture of YOLOv8 builds on innovations from YOLOv5 but introduces several improvements for superior detection accuracy and efficiency. These improvements allow YOLOv8 to excel in detecting multiple types of road hazards, including potholes, sewer covers, and manholes.
+
+            </p>
+           
+                <ol>
+                <li><h4> CSPDarknet53 Feature Extractor</h4><p>YOLOv8 employs CSPDarknet53 as its feature extractor, which consists of convolutional layers, batch normalization, and SiLU activation functions. The shift from a 6x6 convolutional layer to a 3x3 convolutional layer improves the ability to detect finer details, such as the edges and textures of potholes, sewer covers, and manholes.
+
+                </p>
+                </li>
+                <li><h4>. C2f Module (Cross-Stage Partial Bottleneck)</h4>
+                <p>The C2f Module helps YOLOv8 merge high-level features with contextual information, which is critical for distinguishing between different types of road hazards. By concatenating the outputs of bottleneck blocks, the model can more accurately represent the visual features of hazards like potholes, manholes, and sewer covers.</p></li>
+                <li><h4>Detection Head</h4><p>YOLOv8 adopts an anchor-free detection strategy, allowing the model to directly predict object centers and bounding boxes for multiple hazard types.</p>
+                    <ul>
+                        <li>Independent Branches: Separate branches for objectness, classification, and regression tasks. This design allows the model to focus on detecting different road hazards with high accuracy.</li>
+                        <li>Activation Functions: YOLOv8 uses a sigmoid function for objectness scores and softmax for class probabilities, ensuring the correct classification of hazards like potholes, sewer covers, and manholes.</li>
+                        
+                      </ul>
+                      
+                </li>
+                <li>
+                    <h4>Loss Functions</h4>
+                    <p>YOLOv8 uses CIoU (Complete Intersection over Union) and DFL (Dynamic Focal Loss) for bounding box regression, and Binary Cross-Entropy for classification. These loss functions help the model more effectively detect small and irregular objects such as potholes and sewer covers, which may be harder to detect due to varying sizes and conditions.
+
+                    </p>
+                </li>
+                <li>
+                    <h4>
+                        YOLOv8-Seg Model
+                    </h4>
+                    <p>In addition to object detection, YOLOv8 includes a segmentation model, YOLOv8-Seg, which predicts semantic segmentation masks. This adds versatility, allowing the model to not only detect hazards but also to segment and classify them with higher precision.</p>
+                </li>
+                </ol>
+                <br>
+
+            <h3>Advanced Training Techniques</h3>
+            <p>YOLOv8 enhances its performance using Mosaic Augmentation, a technique that combines four images during training. This helps the model learn to detect road hazards like potholes, sewer covers, and manholes in various locations and backgrounds. Mosaic augmentation is disabled in the last 10 epochs to avoid potential performance degradation. Additionally, hyperparameter tuning was performed for models such as YOLOv5 tiny, YOLOv5 small, YOLOv7, YOLOv8 tiny, and YOLOv8 small to ensure comparable results across all models. Training was conducted on an NVIDIA GeForce RTX 3090 GPU, ensuring efficient computation and faster model training.</p>
+            <h3>Dataset for Road Hazard Detection</h3>
+            <img src="images/8.png" alt="Model Architecture"width="550" height="350">
+            <p>
+                The dataset used in this project was sourced from Roboflow Universe, specifically the "Pothole Detection" dataset provided by the Intel Unnati Training Program. This dataset includes annotated images of potholes, manholes, and sewer covers, offering a diverse range of road hazards captured under different lighting conditions, camera angles, and environmental settings.
+            </p>
+            <p>Additionally, the dataset incorporates images from the Indian Driving Dataset, which includes road hazards captured from dashboard camera perspectives. The inclusion of water-filled potholes further enhances the dataset’s diversity, ensuring that the model is robust against a variety of real-world conditions.</p>
+        <br>
+        <h3>Data Preprocessing</h3>
+        <p>In preparation for model training, several preprocessing steps were applied to the dataset to ensure consistency and enhance the model’s ability to generalize.</p>
+        <ol>
+            <li><h4>Min-Max Normalization</h4>
+            <p>All images were normalized using min-max normalization, which standardizes pixel values across the dataset. Given that all input images were 640×640 pixels in size, no resizing was required.</p></li>
+            <li><h4> Data Augmentation</h4>
+            <p>To increase the diversity and size of the dataset, various data augmentation techniques were applied:</p>
+            <ul>
+                <li>Image Flipping: Horizontal flipping of images to account for different orientations of road hazards.</li>
+                <li>Image Scaling: Rescaling to ensure the model can detect potholes and manholes of different sizes.</li>
+                <li>Motion Blurring: Blurring was introduced to simulate low-quality or motion-affected images.</li>
+                <li>Color Manipulation: Adjustments to RGB values to simulate varying lighting conditions, such as bright sunlight or low ambient light at night.
+                </li>
+                <li>Fog Addition: The introduction of fog in some images ensured that the model could handle low-visibility conditions.</li>
+              </ul>
+              
+        
+        </li>
+            
+          </ol>
+          <h3>Model Training</h3>
+          <p>Hyperparameter tuning was conducted by considering dif-ferent parameters and evaluating which ones yielded the best results. All three models, namely, YOLOv5 tiny, YOLOv5 small, YOLOv7, YOLOv8 tiny, and YOLOv8 small, were trained with the same hyperparameters, to ensure comparable results. Training of all models was performed on an NVIDIA GeForce RTX 3090 GPU with 10,496 CUDA cores.</p>
+          <img src="images/3.png" alt="Model Architecture"width="450" height="350">
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Visual Detection of Road Hazards Tutorial | Created by Jaskaran Singh Sabharwal</p>
+    </footer>
+</body>
+</html>

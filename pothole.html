@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Depth Estimation - Sensors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="pothole.html">Pothole Detection</a></li>
+                <li><a href="models.html">Models</a></li>
+               
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="conclusion.html">Conclusion</a></li>
+                
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="sensors">
+            <h2>Pothole Detection | Recent Work</h2>
+            <p>This section covers the recent work that has being done for pothole detection using different models</p>
+            <h3>Overview:</h3>
+            <p>In recent years, there has been a significant surge in research focusing on road conditions, encompassing challenges like potholes, manholes, sewer covers, and man hole detection. This heightened interest can largely be attributed to the ad-vancements in autonomous vehicle technologies, where the accurate mapping of road conditions holds paramount importance. Pothole detection methods have evolved alot</p>
+            <p>YOLOv7 is a cutting-edge real-time object detection model designed to deliver high-speed predictions with exceptional accuracy. In this application, YOLOv7 is utilized to detect road hazards, particularly potholes, in images or real-time video feeds. This technology can be instrumental in improving road safety and reducing accidents caused by poor road conditions.
+
+            </p>
+            <br>
+            <img src="images/5.png" alt="Road hazard" width="550" height="350">
+
+            <h4>YOLOv7 Model Architecture:</h4>
+            <p>The core innovation in YOLOv7 is the E-ELAN (Extended Efficient Layer Aggregation Network) block. This block significantly enhances the network’s learning capacity by:
+               </p>
+               <ul>
+                <li>Allowing for deeper architectures without losing efficiency.</li>
+                <li>Employing operations such as expand, shuffle, and merge, which improve feature extraction from images.</li>
+                <li>Ensuring that gradient flow remains intact, which is critical for training deep neural networks.</li>
+            </ul>
+            <br>
+            <p>
+                Group Convolutions are used in E-ELAN to increase both the channel size and block count, resulting in more robust feature learning.
+YOLOv7 reduces the number of parameters by about 40% and computation by 50% compared to earlier versions like YOLOv5, making it highly suitable for resource-constrained environments (such as edge devices in vehicles).
+                </p>
+               
+             
+                <h4> YOLOv7 Features for Real-Time Implementation:</h4>
+                <p> YOLOv7’s efficiency and speed make it ideal for real-time pothole detection systems:</p>
+                <p>This is a paragraph explaining some key points:</p>
+                <ul>
+                    <li>The pre-trained YOLOv7 weights allow for quick fine-tuning on smaller datasets like the Roboflow dataset without requiring extensive hardware.</li>
+                    <li>It can run on mobile GPUs or onboard vehicle systems, leveraging its lightweight architecture.</li>
+                    
+                </ul>
+                <img src="images/6.png" alt="Road hazard" width="550" height="350">
+                <h4> Challenges and Improvements:</h4>
+                <p>Challenges:
+                </p>
+                
+                    <ul>
+                         <li>Variability in pothole appearance: Different sizes, shapes, and textures make it difficult to generalize across all cases</li>
+                          <li>Environmental conditions: Weather, lighting, and road type variations can affect detection accuracy.</li>
+                         
+                    </ul>
+                    <br>
+                <p>Future Improvements:</p>
+                <p>This is a paragraph explaining some key points:</p>
+                <ul>
+                    <li>Larger and more diverse datasets: To improve generalization across different road environments.</li
+                    <li> Multi-class detection: Incorporating the detection of other road hazards like cracks, manholes, and speed bumps.</li>
+                    <li>Enhanced mAP scores: Through further tuning and architectural changes to better adapt to complex road conditions.</li>
+                </ul>
+                
+
+                
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Visual Detection of Road Hazards Tutorial | Created by Jaskaran Singh Sabharwal</p>
+    </footer>
+</body>
+</html>
